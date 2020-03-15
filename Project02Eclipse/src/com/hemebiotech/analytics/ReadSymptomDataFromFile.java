@@ -18,37 +18,19 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private static String filepath = "C:\\Users\\avieira\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
 
-	Symptoms headache = new Symptoms("headache");
-	Symptoms fever = new Symptoms("fever");
-	Symptoms cough = new Symptoms("cough");
+	Symptoms headache = new Headache("headache");
 
 	@Override
-	public List<Symptoms> getSymptoms() {
+	public List<String> getLinesFromFile() {
+		ArrayList<String> result = new ArrayList<String>();
 
-		ArrayList<Symptoms> result = new ArrayList<Symptoms>();
-		
 		if (filepath != null) {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 
 				while (line != null) {
-					if (line.equals(headache.getName())){
-						int nbrOccurs = headache.getOccurs();
-						nbrOccurs++;
-						headache.setOccurs(nbrOccurs);
-					}
-					else if (line.equals(fever.getName())){
-						int nbrOccurs = fever.getOccurs();
-						nbrOccurs++;
-						fever.setOccurs(nbrOccurs);
-					}
-					else if (line.equals(cough.getName())){
-						int nbrOccurs = cough.getOccurs();
-						nbrOccurs++;
-						cough.setOccurs(nbrOccurs);
-					}
-
+					result.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -56,13 +38,23 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				e.printStackTrace();
 			}
 		}
-		//Adding the symptoms
-		result.add(headache);
-		result.add(fever);
-		result.add(cough);
-		//sort the list alphabetically
-		result.sort(Comparator.comparing(Symptoms::getName));
+
 		return result;
+	}
+
+	@Override
+	public List<Symptoms> getSymptoms(List<String> sList) {
+		List<Symptoms> symptoms = new ArrayList<Symptoms>();
+		for (String nameSymptom: sList
+			 ) {
+			if (nameSymptom.equals(headache.getName())){
+				int nbrOccurs= headache.getOccurs();
+				nbrOccurs++;
+				headache.setOccurs(nbrOccurs);
+			}
+		}
+		symptoms.add(headache);
+		return symptoms;
 	}
 
 }

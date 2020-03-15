@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics.symptoms;
 
-public class Symptoms {
+public  abstract class Symptoms {
     String name;
     int occurs;
 

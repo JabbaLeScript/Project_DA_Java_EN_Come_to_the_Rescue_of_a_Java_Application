@@ -12,7 +12,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
     @Override
     public void writeToFile() {
-        List<Symptoms> lSymptoms = symptomReader.getSymptoms();
+
+        List<String> lLines = symptomReader.getLinesFromFile();
+        List<Symptoms> lSymptoms = symptomReader.getSymptoms(lLines);
+
         try {
             FileWriter writer = new FileWriter("result.out");
             for (Symptoms symptom: lSymptoms
