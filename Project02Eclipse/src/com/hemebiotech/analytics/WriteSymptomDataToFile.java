@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
@@ -25,7 +26,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
             FileWriter writer = new FileWriter("result.out");
             for (Symptom symptom: sortedList
             ) {
-                System.out.println(symptom);
                 writer.write(symptom.getName() + " = " + symptom.getOccurs() + System.lineSeparator());
             }
             writer.close();
