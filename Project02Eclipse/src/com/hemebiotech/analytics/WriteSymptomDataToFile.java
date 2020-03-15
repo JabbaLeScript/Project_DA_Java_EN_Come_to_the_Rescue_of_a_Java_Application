@@ -15,9 +15,11 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
     public void writeToFile() {
 
         List<String> lLines = symptomReader.getLinesFromFile();
-        List<Symptom> sortedList = symptomReader.getSymptoms(lLines);
 
-//        List<Symptom> lSymptoms = symptomReader.getSymptoms(lLines);
+        List<Symptom> lSymptoms = symptomReader.getListSymptoms(lLines);
+
+        List<Symptom> sortedList = symptomReader.getSymptoms(lLines, lSymptoms);
+
 
         try {
             FileWriter writer = new FileWriter("result.out");

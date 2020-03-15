@@ -23,7 +23,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
 
 				while (line != null) {
@@ -41,43 +41,30 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 
 	@Override
-	public ArrayList<Symptom> getListSymptoms(List<String> aList){
+	public ArrayList<Symptom> getListSymptoms(List<String> aList) {
 		ArrayList<Symptom> listSymptoms = new ArrayList<Symptom>();
-		for (String name:aList
-			 ) {
+		for (String name : aList
+		) {
 			listSymptoms.add(new Symptom(name));
 		}
 		return listSymptoms;
 	}
 
 	@Override
-	public List<Symptom> getSymptoms(List<String> sList) {
-
+	public List<Symptom> getSymptoms(List<String> sList, List<Symptom> oList) {
+		/*
 		List<Symptom> symptoms = new ArrayList<Symptom>();
-
 		symptoms.add(new Symptom("headache"));
 		symptoms.add(new Symptom("cough"));
-		symptoms.add(new Symptom("fever"));
+		symptoms.add(new Symptom("fever"));*/
+
+		List<Symptom> sortedList = new ArrayList<>();
 
 
-//		List<Symptom> sortedList = new ArrayList<>();
 
-		for (String nameSymptom: sList
-			 ) {
-			for (Symptom objectSymptom: symptoms
-				 ) {
-				if (nameSymptom.equals(objectSymptom.getName())){
-				int nbrOccurs= objectSymptom.getOccurs();
-				nbrOccurs++;
-				objectSymptom.setOccurs(nbrOccurs);
-				}
-			}
-		}
-
-		symptoms.sort(Comparator.comparing(Symptom::getName));
-		return symptoms;
-//		sortedList.add(objectList);
-//		return sortedList;
+		sortedList.sort(Comparator.comparing(Symptom::getName));
+		return sortedList;
 	}
+
 
 }

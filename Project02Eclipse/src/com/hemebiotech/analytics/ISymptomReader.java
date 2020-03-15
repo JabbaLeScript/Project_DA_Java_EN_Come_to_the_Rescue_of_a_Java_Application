@@ -21,5 +21,5 @@ public interface ISymptomReader {
 	 */
 	List<String> getLinesFromFile();
 	List<Symptom> getListSymptoms(List<String> stringList);
-	List<Symptom> getSymptoms(List<String > nameList);
+	List<Symptom> getSymptoms(List<String > nameList, List<Symptom> symptomList);
 }
