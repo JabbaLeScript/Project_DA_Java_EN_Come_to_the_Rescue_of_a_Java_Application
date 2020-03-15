@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.symptoms.Symptom;
+import com.hemebiotech.analytics.symptoms.Symptoms;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,10 +12,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
     @Override
     public void writeToFile() {
-        List<Symptom> lSymptoms = symptomReader.getSymptoms();
+        List<Symptoms> lSymptoms = symptomReader.getSymptoms();
         try {
             FileWriter writer = new FileWriter("result.out");
-            for (Symptom symptom: lSymptoms
+            for (Symptoms symptom: lSymptoms
             ) {
                 System.out.println(symptom);
                 writer.write(symptom.getName() + " = " + symptom.getOccurs() + System.lineSeparator());

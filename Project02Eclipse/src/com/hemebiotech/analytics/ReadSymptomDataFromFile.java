@@ -18,15 +18,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private static String filepath = "C:\\Users\\avieira\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
 
-	Symptom headache = new Headache("headache");
-	Symptom fever = new Fever("fever");
-	Symptom cough= new Cough("cough");
-
+	Symptoms headache = new Symptoms("headache");
+	Symptoms fever = new Symptoms("fever");
+	Symptoms cough = new Symptoms("cough");
 
 	@Override
-	public List<Symptom> getSymptoms() {
+	public List<Symptoms> getSymptoms() {
 
-		ArrayList<Symptom> result = new ArrayList<Symptom>();
+		ArrayList<Symptoms> result = new ArrayList<Symptoms>();
 		
 		if (filepath != null) {
 			try {
@@ -62,7 +61,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		result.add(fever);
 		result.add(cough);
 		//sort the list alphabetically
-		result.sort(Comparator.comparing(Symptom::getName));
+		result.sort(Comparator.comparing(Symptoms::getName));
 		return result;
 	}
 

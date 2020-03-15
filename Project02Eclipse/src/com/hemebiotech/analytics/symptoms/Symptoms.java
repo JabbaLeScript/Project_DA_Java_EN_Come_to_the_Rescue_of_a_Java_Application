@@ -1,14 +1,10 @@
 package com.hemebiotech.analytics.symptoms;
 
-public abstract class Symptom {
+public class Symptoms {
     String name;
     int occurs;
 
-    public Symptom(){
-
-    }
-
-    public Symptom(String name) {
+    public Symptoms(String name) {
         this.name = name;
     }
 
@@ -30,7 +26,7 @@ public abstract class Symptom {
 
     @Override
     public String toString() {
-        return "Symptom{" +
+        return "Symptoms{" +
                 "name='" + name + '\'' +
                 ", occurs=" + occurs +
                 '}';
