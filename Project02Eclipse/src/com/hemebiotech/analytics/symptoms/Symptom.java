@@ -1,10 +1,10 @@
 package com.hemebiotech.analytics.symptoms;
 
-public  abstract class Symptoms {
+public  class Symptom {
     String name;
     int occurs;
 
-    public Symptoms(String name) {
+    public Symptom(String name) {
         this.name = name;
     }
 

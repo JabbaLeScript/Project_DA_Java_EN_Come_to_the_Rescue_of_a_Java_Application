@@ -1,7 +1,8 @@
 package com.hemebiotech.analytics;
 
-import com.hemebiotech.analytics.symptoms.Symptoms;
+import com.hemebiotech.analytics.symptoms.Symptom;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,5 +20,6 @@ public interface ISymptomReader {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
 	List<String> getLinesFromFile();
-	List<Symptoms> getSymptoms(List<String > nameList);
+	List<Symptom> getListSymptoms(List<String> stringList);
+	List<Symptom> getSymptoms(List<String > nameList);
 }

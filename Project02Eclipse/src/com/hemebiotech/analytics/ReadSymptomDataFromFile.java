@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -17,8 +16,6 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private static String filepath = "C:\\Users\\avieira\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
-
-	Symptoms headache = new Headache("headache");
 
 	@Override
 	public List<String> getLinesFromFile() {
@@ -42,19 +39,45 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
+
 	@Override
-	public List<Symptoms> getSymptoms(List<String> sList) {
-		List<Symptoms> symptoms = new ArrayList<Symptoms>();
+	public ArrayList<Symptom> getListSymptoms(List<String> aList){
+		ArrayList<Symptom> listSymptoms = new ArrayList<Symptom>();
+		for (String name:aList
+			 ) {
+			listSymptoms.add(new Symptom(name));
+		}
+		return listSymptoms;
+	}
+
+	@Override
+	public List<Symptom> getSymptoms(List<String> sList) {
+
+		List<Symptom> symptoms = new ArrayList<Symptom>();
+
+		symptoms.add(new Symptom("headache"));
+		symptoms.add(new Symptom("cough"));
+		symptoms.add(new Symptom("fever"));
+
+
+//		List<Symptom> sortedList = new ArrayList<>();
+
 		for (String nameSymptom: sList
 			 ) {
-			if (nameSymptom.equals(headache.getName())){
-				int nbrOccurs= headache.getOccurs();
+			for (Symptom objectSymptom: symptoms
+				 ) {
+				if (nameSymptom.equals(objectSymptom.getName())){
+				int nbrOccurs= objectSymptom.getOccurs();
 				nbrOccurs++;
-				headache.setOccurs(nbrOccurs);
+				objectSymptom.setOccurs(nbrOccurs);
+				}
 			}
 		}
-		symptoms.add(headache);
+
+		symptoms.sort(Comparator.comparing(Symptom::getName));
 		return symptoms;
+//		sortedList.add(objectList);
+//		return sortedList;
 	}
 
 }
