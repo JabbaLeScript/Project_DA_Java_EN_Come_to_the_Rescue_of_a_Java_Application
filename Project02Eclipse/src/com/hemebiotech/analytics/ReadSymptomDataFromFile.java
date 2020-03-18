@@ -40,9 +40,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	@Override
 	public Map<String, Integer> getMapSymptoms(List<String> stringList) {
 
+		// tree map to get the data sorted alphabetically
 		Map<String, Integer> result = new TreeMap<>();
+		// creation of a Symptom object
 		Symptom oSymptom = new Symptom();
-
+		//get acces to the variable instance, which is a HashMap
 		Map<String, Integer> mapSymptom = oSymptom.getMapSymptom();
 
 		for (String name:stringList
