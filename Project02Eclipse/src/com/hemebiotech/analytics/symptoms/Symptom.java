@@ -1,34 +1,24 @@
 package com.hemebiotech.analytics.symptoms;
 
+import java.util.*;
+
 public  class Symptom {
-    String name;
-    int occurs;
 
-    public Symptom(String name) {
-        this.name = name;
+    Map<String, Integer> mapSymptom = new HashMap<>();
+
+
+    public Map<String, Integer> getMapSymptom() {
+        return mapSymptom;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getOccurs() {
-        return occurs;
-    }
-
-    public void setOccurs(int occurs) {
-        this.occurs = occurs;
+    public void setMapSymptom(Map<String, Integer> mapSymptom) {
+        this.mapSymptom = mapSymptom;
     }
 
     @Override
     public String toString() {
-        return "Symptoms{" +
-                "name='" + name + '\'' +
-                ", occurs=" + occurs +
+        return "Symptom{" +
+                "mapSymptom=" + mapSymptom +
                 '}';
     }
 }

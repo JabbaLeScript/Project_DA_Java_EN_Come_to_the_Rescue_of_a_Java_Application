@@ -5,10 +5,7 @@ import com.hemebiotech.analytics.symptoms.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * Simple brute force implementation
@@ -16,7 +13,8 @@ import java.util.stream.Collectors;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private static String filepath = "C:\\Users\\avieira\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
+	//relative file path
+	private static String filepath = "Project02Eclipse/symptoms.txt";
 
 	@Override
 	public List<String> getLinesFromFile() {
@@ -40,52 +38,20 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 
 	@Override
-	public ArrayList<Symptom> getListSymptoms(List<String> aList) {
+	public Map<String, Integer> getMapSymptoms(List<String> stringList) {
 
-		ArrayList<Symptom> listSymptoms = new ArrayList<Symptom>();
+		Map<String, Integer> result = new TreeMap<>();
+		Symptom oSymptom = new Symptom();
 
-		for (String aName: aList
+		Map<String, Integer> mapSymptom = oSymptom.getMapSymptom();
+
+		for (String name:stringList
 			 ) {
-			listSymptoms.add(new Symptom(aName));
+			int freq = Collections.frequency(stringList, name);
+			mapSymptom.put(name, freq);
 		}
-		return listSymptoms;
-	}
-
-	@Override
-	public List<Symptom> getSymptoms(List<String> sList, List<Symptom> oList) {
-		/*
-		List<Symptom> symptoms = new ArrayList<Symptom>();
-		symptoms.add(new Symptom("headache"));
-		symptoms.add(new Symptom("cough"));
-		symptoms.add(new Symptom("fever"));*/
-
-		List<Symptom> result = new ArrayList<>();
-		System.out.println(oList.size());
-
-		for (int i = 0; i < oList.size() ; i++) {
-		result.add(oList.get(i));
-		}
-
-		for (String aName:sList
-			 ) {
-			{
-				for (Symptom symptom:oList
-					 ) {
-					if(aName.equals(symptom.getName())){
-						int nbrOccurs= symptom.getOccurs();
-						nbrOccurs++;
-						symptom.setOccurs(nbrOccurs);
-					}
-
-					}
-				}
-
-		}
-
-		result.sort(Comparator.comparing(Symptom::getName));
-		System.out.println(result);
+		result.putAll(mapSymptom);
 		return result;
 	}
-
 
 }

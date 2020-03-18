@@ -4,8 +4,7 @@ import com.hemebiotech.analytics.symptoms.Symptom;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
@@ -14,19 +13,15 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
     @Override
     public void writeToFile() {
-
         List<String> lLines = symptomReader.getLinesFromFile();
 
-        List<Symptom> lSymptoms = symptomReader.getListSymptoms(lLines);
-
-        List<Symptom> sortedList = symptomReader.getSymptoms(lLines, lSymptoms);
-
-
+        Map<String, Integer> mapSymptoms = symptomReader.getMapSymptoms(lLines);
+        
         try {
             FileWriter writer = new FileWriter("result.out");
-            for (Symptom symptom: sortedList
-            ) {
-                writer.write(symptom.getName() + " = " + symptom.getOccurs() + System.lineSeparator());
+            for (Map.Entry<String, Integer> entry:mapSymptoms.entrySet()
+                 ) {
+                writer.write(entry.getKey() + " = " + entry.getValue() + System.lineSeparator());
             }
             writer.close();
         } catch (IOException e) {

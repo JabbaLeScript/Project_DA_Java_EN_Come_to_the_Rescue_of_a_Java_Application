@@ -2,8 +2,8 @@ package com.hemebiotech.analytics;
 
 import com.hemebiotech.analytics.symptoms.Symptom;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.plaf.synth.SynthLabelUI;
+import java.util.*;
 
 /**
  * Anything that will read symptom data from a source
@@ -20,6 +20,5 @@ public interface ISymptomReader {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
 	List<String> getLinesFromFile();
-	List<Symptom> getListSymptoms(List<String> stringList);
-	List<Symptom> getSymptoms(List<String > nameList, List<Symptom> symptomList);
+	Map<String, Integer> getMapSymptoms(List<String> stringList);
 }
