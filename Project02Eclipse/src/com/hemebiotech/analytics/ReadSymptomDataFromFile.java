@@ -14,7 +14,7 @@ import java.util.*;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	@Override
-	public List<String> getLinesFromFile(String filepath) {
+	public List<String> getNameSymptom(String filepath) {
 		ArrayList<String> result = new ArrayList<String>();
 		if (filepath != null) {
 			try {
@@ -33,9 +33,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
-
 	@Override
-	public Map<String, Integer> getMapSymptoms(List<String> stringList) {
+	public Map<String, Integer> getMapSymptom(List<String> stringList) {
 
 		Map<String, Integer> result = new TreeMap<>();
 		Symptom oSymptom = new Symptom();
@@ -50,5 +49,4 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		result.putAll(mapSymptom);
 		return result;
 	}
-
 }

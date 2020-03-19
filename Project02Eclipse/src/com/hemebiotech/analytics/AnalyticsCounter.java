@@ -13,9 +13,9 @@ public class AnalyticsCounter {
 		symptomReader = new ReadSymptomDataFromFile();
 		symptomWriter = new WriteSymptomDataToFile();
 
-		//get symptom name and their occurences, sorted alphabatically
-		List<String> listSymptomName = symptomReader.getLinesFromFile(filepath);
-		Map<String, Integer> mapSymptom = symptomReader.getMapSymptoms(listSymptomName);
+		//get symptom name and their occurences, sorted alphabetically
+		List<String> listSymptomName = symptomReader.getNameSymptom(filepath);
+		Map<String, Integer> mapSymptom = symptomReader.getMapSymptom(listSymptomName);
 
 		//write the sorted data to a new file
 		symptomWriter.writeToFile(mapSymptom);

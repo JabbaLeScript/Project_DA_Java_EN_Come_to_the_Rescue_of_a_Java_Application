@@ -19,6 +19,6 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> getLinesFromFile(String filePath);
-	Map<String, Integer> getMapSymptoms(List<String> stringList);
+	List<String> getNameSymptom(String filePath);
+	Map<String, Integer> getMapSymptom(List<String> stringList);
 }
