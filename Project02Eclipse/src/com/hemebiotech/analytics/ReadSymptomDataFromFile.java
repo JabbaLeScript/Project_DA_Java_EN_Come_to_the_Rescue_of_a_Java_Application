@@ -13,11 +13,8 @@ import java.util.*;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	//relative file path
-	private static String filepath = "Project02Eclipse/symptoms.txt";
-
 	@Override
-	public List<String> getLinesFromFile() {
+	public List<String> getLinesFromFile(String filepath) {
 		ArrayList<String> result = new ArrayList<String>();
 		if (filepath != null) {
 			try {

@@ -9,17 +9,11 @@ import java.util.stream.Collectors;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
-    ISymptomReader symptomReader = new ReadSymptomDataFromFile();
-
     @Override
-    public void writeToFile() {
-        List<String> lLines = symptomReader.getLinesFromFile();
-
-        Map<String, Integer> mapSymptoms = symptomReader.getMapSymptoms(lLines);
-        
+    public void writeToFile(Map<String, Integer> mapSymptom) {
         try {
             FileWriter writer = new FileWriter("result.out");
-            for (Map.Entry<String, Integer> entry:mapSymptoms.entrySet()
+            for (Map.Entry<String, Integer> entry:mapSymptom.entrySet()
                  ) {
                 writer.write(entry.getKey() + " = " + entry.getValue() + System.lineSeparator());
             }
