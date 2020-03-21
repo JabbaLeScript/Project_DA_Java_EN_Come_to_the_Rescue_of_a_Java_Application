@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package com.hemebiotech.analytics.mapping;
 
 import com.hemebiotech.analytics.symptoms.*;
 
@@ -11,13 +11,10 @@ import java.util.*;
  * Simple brute force implementation
  *
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	//relative file path
-	private static String filepath = "Project02Eclipse/symptoms.txt";
+public class TextSymptomReader implements ISymptomReader {
 
 	@Override
-	public List<String> getLinesFromFile() {
+	public List<String> fileReader(String filepath) {
 		ArrayList<String> result = new ArrayList<String>();
 		if (filepath != null) {
 			try {
@@ -36,9 +33,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return result;
 	}
 
-
 	@Override
-	public Map<String, Integer> getMapSymptoms(List<String> stringList) {
+	public Map<String, Integer> getTableSymptom(List<String> stringList) {
 
 		// tree map to get the data sorted alphabetically
 		Map<String, Integer> result = new TreeMap<>();
@@ -55,5 +51,4 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		result.putAll(mapSymptom);
 		return result;
 	}
-
 }
