@@ -1,11 +1,8 @@
-package com.hemebiotech.analytics;
-
-import com.hemebiotech.analytics.symptoms.Symptom;
+package com.hemebiotech.analytics.dataconnector;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TextSymptomWriter implements ISymptomWriter {
 
