@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class WriteSymptomDataToFile implements ISymptomWriter {
+public class TextSymptomWriter implements ISymptomWriter {
 
     @Override
     public void fileWriter(Map<String, Integer> mapSymptom) {

@@ -10,12 +10,12 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
 		// create object
-		symptomReader = new ReadSymptomDataFromFile();
-		symptomWriter = new WriteSymptomDataToFile();
+		symptomReader = new TextSymptomReader();
+		symptomWriter = new TextSymptomWriter();
 
 		//get symptom name and their occurences, sorted alphabetically
 		List<String> listSymptomName = symptomReader.fileReader(filepath);
-		Map<String, Integer> mapSymptom = symptomReader.getMapSymptom(listSymptomName);
+		Map<String, Integer> mapSymptom = symptomReader.getSymptom(listSymptomName);
 
 		//write the sorted data to a new file
 		symptomWriter.fileWriter(mapSymptom);
