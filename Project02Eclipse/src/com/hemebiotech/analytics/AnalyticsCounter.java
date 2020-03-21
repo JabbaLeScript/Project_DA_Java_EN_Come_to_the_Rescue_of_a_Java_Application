@@ -1,5 +1,10 @@
 package com.hemebiotech.analytics;
 
+import com.hemebiotech.analytics.mapping.ISymptomReader;
+import com.hemebiotech.analytics.mapping.ISymptomWriter;
+import com.hemebiotech.analytics.mapping.TextSymptomReader;
+import com.hemebiotech.analytics.mapping.TextSymptomWriter;
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +20,7 @@ public class AnalyticsCounter {
 
 		//get symptom name and their occurences, sorted alphabetically
 		List<String> listSymptomName = symptomReader.fileReader(filepath);
-		Map<String, Integer> mapSymptom = symptomReader.getSymptom(listSymptomName);
+		Map<String, Integer> mapSymptom = symptomReader.getTableSymptom(listSymptomName);
 
 		//write the sorted data to a new file
 		symptomWriter.fileWriter(mapSymptom);

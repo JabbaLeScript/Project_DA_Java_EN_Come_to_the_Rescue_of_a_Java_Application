@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package com.hemebiotech.analytics.mapping;
 
 import com.hemebiotech.analytics.symptoms.*;
 
@@ -34,7 +34,7 @@ public class TextSymptomReader implements ISymptomReader {
 	}
 
 	@Override
-	public Map<String, Integer> getSymptom(List<String> stringList) {
+	public Map<String, Integer> getTableSymptom(List<String> stringList) {
 
 		Map<String, Integer> result = new TreeMap<>();
 		Symptom oSymptom = new Symptom();
