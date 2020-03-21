@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
     @Override
-    public void writeToFile(Map<String, Integer> mapSymptom) {
+    public void fileWriter(Map<String, Integer> mapSymptom) {
         try {
             FileWriter writer = new FileWriter("result.out");
             for (Map.Entry<String, Integer> entry:mapSymptom.entrySet()

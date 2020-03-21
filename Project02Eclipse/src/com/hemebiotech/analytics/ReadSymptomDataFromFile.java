@@ -14,7 +14,7 @@ import java.util.*;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	@Override
-	public List<String> getNameSymptom(String filepath) {
+	public List<String> fileReader(String filepath) {
 		ArrayList<String> result = new ArrayList<String>();
 		if (filepath != null) {
 			try {

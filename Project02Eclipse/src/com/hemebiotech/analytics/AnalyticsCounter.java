@@ -14,10 +14,10 @@ public class AnalyticsCounter {
 		symptomWriter = new WriteSymptomDataToFile();
 
 		//get symptom name and their occurences, sorted alphabetically
-		List<String> listSymptomName = symptomReader.getNameSymptom(filepath);
+		List<String> listSymptomName = symptomReader.fileReader(filepath);
 		Map<String, Integer> mapSymptom = symptomReader.getMapSymptom(listSymptomName);
 
 		//write the sorted data to a new file
-		symptomWriter.writeToFile(mapSymptom);
+		symptomWriter.fileWriter(mapSymptom);
 	}
 }
