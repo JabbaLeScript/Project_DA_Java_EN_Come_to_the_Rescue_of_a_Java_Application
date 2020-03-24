@@ -2,6 +2,11 @@ package com.hemebiotech.analytics.datasource;
 
 import java.io.File;
 
+/**
+ * Variant of FileDataSource for a text file.
+ * @see FileDataSource
+ */
+
 public class TextDataSource extends FileDataSource {
     File file;
 
@@ -9,13 +14,14 @@ public class TextDataSource extends FileDataSource {
         this.file = file;
     }
 
+
     @Override
     public File getFile() {
         return this.file;
     }
 
     @Override
-    public String getString() {
-        return file.getAbsolutePath();
+    public String getPath() {
+        return this.file.getAbsolutePath();
     }
 }

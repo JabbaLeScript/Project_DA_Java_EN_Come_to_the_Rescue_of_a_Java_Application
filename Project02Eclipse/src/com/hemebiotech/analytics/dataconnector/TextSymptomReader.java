@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Simple brute force implementation
- *
+ * Implementation of ISymptomReader
+ * @see ISymptomReader
+ * @implSpec ISymptomReader
  */
 public class TextSymptomReader implements ISymptomReader {
 

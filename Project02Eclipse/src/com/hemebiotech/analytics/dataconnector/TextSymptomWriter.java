@@ -4,6 +4,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * implementation of {@link ISymptomWriter}
+ * @see ISymptomWriter
+ * @implSpec ISymptomWriter
+ */
 public class TextSymptomWriter implements ISymptomWriter {
 
     @Override

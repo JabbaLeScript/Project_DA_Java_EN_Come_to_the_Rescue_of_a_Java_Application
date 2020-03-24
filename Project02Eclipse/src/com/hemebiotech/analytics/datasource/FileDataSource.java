@@ -7,7 +7,15 @@ import java.io.File;
 * */
 public abstract class FileDataSource {
 
+    /**
+     *
+     * @return a File object, which is the relative path of file
+     */
     public abstract File getFile();
-    public abstract String getString();
 
+    /**
+     *
+     * @return a String object, which is the absolute path of the file
+     */
+    public abstract String getPath();
 }

@@ -2,11 +2,20 @@ package com.hemebiotech.analytics.symptoms;
 
 import java.util.*;
 
+/**
+ * a Symptom object
+ */
+
 public  class Symptom {
+    /**
+     * Tree map to store data symptoms
+     */
+    Map<String, Integer> mapSymptom = new TreeMap<>();
 
-    Map<String, Integer> mapSymptom = new HashMap<>();
-
-
+    /**
+     *
+     * @return a Map object
+     */
     public Map<String, Integer> getMapSymptom() {
         return mapSymptom;
     }

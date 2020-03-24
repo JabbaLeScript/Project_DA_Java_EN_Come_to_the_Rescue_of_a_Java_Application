@@ -17,7 +17,7 @@ public class AnalyticsCounter {
 	File file = new File(filepath);
 
 	TextDataSource textDataSource = new TextDataSource(file);
-
+	
 	List<String> textSymptomReader = new TextSymptomReader().fileReader(textDataSource);
 
 	Map<String, Integer> textSourceTable = new SourceTextTable().getSymptom(textSymptomReader);
