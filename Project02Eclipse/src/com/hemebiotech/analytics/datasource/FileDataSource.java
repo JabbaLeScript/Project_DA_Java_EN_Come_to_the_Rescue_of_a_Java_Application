@@ -6,7 +6,6 @@ import java.io.File;
  * Represents a file data source like CSV, Excel, JSON, XML, etc.
 * */
 public abstract class FileDataSource {
-
     /**
      *
      * @return a File object, which is the relative path of file

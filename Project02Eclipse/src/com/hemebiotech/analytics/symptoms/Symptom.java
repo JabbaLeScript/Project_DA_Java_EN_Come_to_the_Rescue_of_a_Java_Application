@@ -3,14 +3,14 @@ package com.hemebiotech.analytics.symptoms;
 import java.util.*;
 
 /**
- * a Symptom object
+ * a Symptom object that represent a data symptom
  */
 
 public  class Symptom {
     /**
-     * Tree map to store data symptoms
+     * Tree map to store data symptoms (key : name,value : number of occurence)
      */
-    Map<String, Integer> mapSymptom = new TreeMap<>();
+    private Map<String, Integer> mapSymptom = new TreeMap<>();
 
     /**
      *
@@ -18,10 +18,6 @@ public  class Symptom {
      */
     public Map<String, Integer> getMapSymptom() {
         return mapSymptom;
-    }
-
-    public void setMapSymptom(Map<String, Integer> mapSymptom) {
-        this.mapSymptom = mapSymptom;
     }
 
     @Override

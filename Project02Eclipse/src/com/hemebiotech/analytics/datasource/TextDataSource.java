@@ -8,12 +8,12 @@ import java.io.File;
  */
 
 public class TextDataSource extends FileDataSource {
-    File file;
+
+    private File file;
 
     public TextDataSource(File file) {
         this.file = file;
     }
-
 
     @Override
     public File getFile() {

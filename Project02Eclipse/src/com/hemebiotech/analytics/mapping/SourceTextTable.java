@@ -15,7 +15,6 @@ import java.util.TreeMap;
 
 public class SourceTextTable extends SourceTable {
 
-
     @Override
     public Map<String, Integer> getSymptom(List<String> stringList) {
         Symptom oSymptom = new Symptom();
