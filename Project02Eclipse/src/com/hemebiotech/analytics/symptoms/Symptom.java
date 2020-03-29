@@ -19,7 +19,6 @@ public  class Symptom {
     public Map<String, Integer> getMapSymptom() {
         return mapSymptom;
     }
-
     @Override
     public String toString() {
         return "Symptom{" +
