@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import com.hemebiotech.analytics.datasource.FileDataSource;
 import com.hemebiotech.analytics.datasource.TextDataSource;
 import com.hemebiotech.analytics.dataconnector.TextSymptomReader;
 import com.hemebiotech.analytics.dataconnector.TextSymptomWriter;
@@ -10,18 +11,23 @@ import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
-	private static String filepath = "Project02Eclipse/symptoms.txt";
 
 	public static void main(String args[]) throws Exception {
+	// the path of symptom.txt
+	String filepath = args[0];
 
 	File file = new File(filepath);
 
-	TextDataSource textDataSource = new TextDataSource(file);
+	// instanciation of a FileDataSourc object : it could be a text or other format
+	FileDataSource textDataSource = new TextDataSource(file);
 
+	//Read the data and return a list of String
 	List<String> textSymptomReader = new TextSymptomReader().fileReader(textDataSource);
 
+	//map the name of the symptom with its number of occurences
 	Map<String, Integer> textSourceTable = new SourceTextTable().getSymptom(textSymptomReader);
 
+	//write the result in another file
 	new TextSymptomWriter().fileWriter(textSourceTable);
 
 
