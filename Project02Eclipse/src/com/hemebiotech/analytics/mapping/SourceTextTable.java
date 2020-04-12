@@ -2,10 +2,8 @@ package com.hemebiotech.analytics.mapping;
 
 import com.hemebiotech.analytics.symptoms.Symptom;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * variant of SourceTable for text file mapping
@@ -16,7 +14,8 @@ import java.util.TreeMap;
 public class SourceTextTable extends SourceTable {
 
     @Override
-    public Map<String, Integer> getSymptom(List<String> stringList) {
+    public Map<String, Integer> getSymptomByName(List<String> stringList) {
+
         Symptom oSymptom = new Symptom();
         Map<String, Integer> mapSymptom = oSymptom.getMapSymptom();
 
@@ -26,5 +25,14 @@ public class SourceTextTable extends SourceTable {
             mapSymptom.put(name, freq);
         }
         return mapSymptom;
+    }
+
+    @Override
+    public Map<String, Integer> getSymptomByValue(Map<String, Integer> mapByKeyName) {
+        return mapByKeyName.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
     }
 }

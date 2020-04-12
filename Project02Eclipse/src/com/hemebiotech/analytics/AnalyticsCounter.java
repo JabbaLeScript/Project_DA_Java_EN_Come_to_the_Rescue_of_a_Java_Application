@@ -24,8 +24,18 @@ public class AnalyticsCounter {
 	//Read the data and return a list of String
 	List<String> textSymptomReader = new TextSymptomReader().fileReader(textDataSource);
 
+
 	//map the name of the symptom with its number of occurences
-	Map<String, Integer> textSourceTable = new SourceTextTable().getSymptom(textSymptomReader);
+
+	SourceTextTable sourceTextTable = new SourceTextTable();
+	Map<String, Integer> symptomSortedByName = sourceTextTable.getSymptomByName(textSymptomReader);
+
+	Map<String, Integer> symptomSortedByValue = sourceTextTable.getSymptomByValue(symptomSortedByName);
+	System.out.println(symptomSortedByValue);
+
+
+	Map<String, Integer> textSourceTable = new SourceTextTable().getSymptomByName(textSymptomReader);
+
 
 	//write the result in another file
 	new TextSymptomWriter().fileWriter(textSourceTable);

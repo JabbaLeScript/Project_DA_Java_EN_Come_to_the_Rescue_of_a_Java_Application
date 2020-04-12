@@ -12,6 +12,8 @@ public abstract class SourceTable {
      * @param stringList
      * @return a Map object in which each data are ordered alphabetically and without duplicates
      */
-    public  abstract  Map<String, Integer> getSymptom(List<String> stringList);
+    public  abstract  Map<String, Integer> getSymptomByName(List<String> stringList);
+
+    public abstract Map<String, Integer> getSymptomByValue(Map<String, Integer> mapByName);
 
 }

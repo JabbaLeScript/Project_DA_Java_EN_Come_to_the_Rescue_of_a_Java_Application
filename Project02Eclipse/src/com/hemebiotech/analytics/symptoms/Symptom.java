@@ -12,6 +12,10 @@ public  class Symptom {
      */
     private Map<String, Integer> mapSymptom = new TreeMap<>();
 
+    private String type;
+    private int occurence;
+
+
     /**
      *
      * @return a Map object
@@ -19,6 +23,7 @@ public  class Symptom {
     public Map<String, Integer> getMapSymptom() {
         return mapSymptom;
     }
+
     @Override
     public String toString() {
         return "Symptom{" +
