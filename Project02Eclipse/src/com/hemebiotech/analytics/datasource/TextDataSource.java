@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics.datasource;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Variant of FileDataSource for a text file.
@@ -12,6 +14,7 @@ public class TextDataSource extends FileDataSource {
     private File file;
 
     public TextDataSource(File file) {
+
         this.file = file;
     }
 
